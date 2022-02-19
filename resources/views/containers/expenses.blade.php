@@ -14,28 +14,34 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <h6>مصاريف داخلية</h6>
-                                    <input type="text" name="cont_in_expenses" class="form-control">
+                                    <input type="text" value="{{ $Container->cont_in_expenses }}" name="cont_in_expenses" class="form-control">
                                 </div>
                             </div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <h6>مصاريف خارجية</h6>
-                                    <input type="text" name="cont_out_expenses" class="form-control">
+                                    <input type="text" value="{{ $Container->cont_out_expenses }}" name="cont_out_expenses" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <h6>كمرك</h6>
-                                    <input type="text" name="cont_customs" class="form-control">
+                                    <input type="text" value="{{ $Container->cont_customs }}" name="cont_customs" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <h6>مصاريف داخلية</h6>
-                                    <input type="text" name="cont_in_expenses" class="form-control">
+                                    <input type="text" value="{{ $Container->cont_in_expenses }}" name="cont_in_expenses" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <h6>نسبة المورد</h6>
+                                    <input type="text" value="{{ $Container->extra_percent }}" name="extra_percent" class="form-control">
                                 </div>
                             </div>
                         </div>

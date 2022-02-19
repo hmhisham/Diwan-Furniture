@@ -28,7 +28,7 @@ class HomeController extends Controller
 
 
 
-      $count_all =invoices::count();
+      /* $count_all =invoices::count();
       $count_invoices1 = invoices::where('Value_Status', 1)->count();
       $count_invoices2 = invoices::where('Value_Status', 2)->count();
       $count_invoices3 = invoices::where('Value_Status', 3)->count();
@@ -95,7 +95,10 @@ class HomeController extends Controller
             ])
             ->options([]);
 
-        return view('home', compact('chartjs','chartjs_2'));
+        return view('home', compact('chartjs','chartjs_2')); */
+        
+        
+        return view('/home');
 
     }
 

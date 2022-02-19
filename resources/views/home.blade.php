@@ -40,7 +40,7 @@
 @endsection
 @section('content')
     <!-- row -->
-    <div class="row row-sm">
+    {{-- <div class="row row-sm">
         <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
             <div class="card overflow-hidden sales-card bg-primary-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
@@ -187,11 +187,11 @@
                 <span id="compositeline4" class="pt-1">5,9,5,6,4,12,18,14,10,15,12,5,8,5,12,5,12,10,16,12</span>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- row closed -->
 
     <!-- row opened -->
-    <div class="row row-sm">
+    {{-- <div class="row row-sm">
         <div class="col-md-12 col-lg-12 col-xl-7">
             <div class="card">
                 <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- row closed -->
     </div>
     </div>

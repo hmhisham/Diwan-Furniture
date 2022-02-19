@@ -104,10 +104,10 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table {{-- id="example1" --}} class="table key-buttons text-md-nowrap" data-page-length='50'>
+                        <table {{-- id="example" --}} class="table key-buttons text-md-nowrap" data-page-length='50'>
                             <thead>
-                                <tr>
-                                    <th class="font-small-3">#</th>
+                                <tr class="alert-primary">
+                                    <th class="font-small-3 pt-2 pb-2">#</th>
                                     <th class="font-small-3">اسم المورد</th>
                                     <th class="font-small-3">البريد الألكتروني</th>
                                     <th class="font-small-3">رقم الهاتف</th>
@@ -133,13 +133,12 @@
                                                 </a>
                                             @endcan
 
-                                            @can('حذف مورد')
+                                            {{-- @can('حذف مورد')
                                                 <a class="modal-effect btn btn-danger rounded-50 btn-sm" data-effect="effect-scale"
                                                     data-toggle="modal" href="#DeleteSupplier{{ $Supplier->id }}">
                                                     حذف
                                                 </a>
-                                            @endcan
-
+                                            @endcan --}}
                                         </td>
                                     </tr>
                                     @include('suppliers.edit')

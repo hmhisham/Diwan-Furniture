@@ -2,7 +2,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar sidebar-scroll">
     <div class="main-sidebar-header active">
-        <a class="desktop-logo logo-light active" href="{{ url('/' . ($page = 'index')) }}"><img
+        {{-- <a class="desktop-logo logo-light active" href="{{ url('/' . ($page = 'index')) }}"><img
                 src="{{ URL::asset('assets/img/brand/logo.png') }}" class="main-logo" alt="logo"></a>
         <a class="desktop-logo logo-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
                 src="{{ URL::asset('assets/img/brand/logo-white.png') }}" class="main-logo dark-theme" alt="logo"></a>
@@ -10,7 +10,8 @@
                 src="{{ URL::asset('assets/img/brand/favicon.png') }}" class="logo-icon" alt="logo"></a>
         <a class="logo-icon mobile-logo icon-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
                 src="{{ URL::asset('assets/img/brand/favicon-white.png') }}" class="logo-icon dark-theme"
-                alt="logo"></a>
+                alt="logo"></a> --}}
+        <h3 class="desktop-logo logo-light active">ديوان للأثاث</h3>
     </div>
     <div class="main-sidemenu">
         <div class="app-sidebar__user clearfix">
@@ -58,10 +59,10 @@
                             <li><a class="slide-item" href="{{ Route('Suppliers.index') }}">قائمة الموردين</a></li>
                         @endcan
                         @can('تسديد المورد')
-                            <li><a class="slide-item" href="#">تسديد المورد</a></li>
+                            <li><a class="slide-item" href="{{ Route('Payment.index') }}">تسديد المورد</a></li>
                         @endcan
                         @can('كشف حساب المورد')
-                            <li><a class="slide-item" href="#">كشف حساب المورد</a></li>
+                            <li><a class="slide-item" href="{{ Route('SuppliersReport.index') }}">كشف حساب المورد</a></li>
                         @endcan
                     </ul>
                 </li>
@@ -105,7 +106,7 @@
                     </a>
                     <ul class="slide-menu">
                         @can('كشف المخزن')
-                            <li><a class="slide-item" href="{{ Route('Suppliers.index') }}">كشف المخزن</a></li>
+                            <li><a class="slide-item" href="{{ Route('StoreReport.index') }}">كشف المخزن</a></li>
                         @endcan
                     </ul>
                 </li>
@@ -123,21 +124,21 @@
                                 d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
                         </svg><span class="side-menu__label">الفواتير</span><i class="angle fe fe-chevron-down"></i></a>
                     <ul class="slide-menu">
-
                         @can('قائمة الفواتير')
-                            <li><a class="slide-item" href="#">قائمة الفواتير</a></li>
+                            <li><a class="slide-item" href="{{ Route("SaleInvoices.index") }}">قائمة الفواتير</a></li>
                         @endcan
 
                         @can('اصدار فاتورة بيع')
-                            <li><a class="slide-item" href="#">اصدار فاتورة بيع</a></li>
+                            <li><a class="slide-item" href="{{ Route("SaleInvoices.create") }}">اصدار فاتورة بيع</a></li>
                         @endcan
 
-                        @can('اصدار فاتورة ارجاع')
+                        {{-- @can('اصدار فاتورة ارجاع')
                             <li><a class="slide-item" href="#">اصدار فاتورة ارجاع</a></li>
-                        @endcan
-                        @can('كشف المبيعات')
+                        @endcan --}}
+
+                        {{-- @can('كشف المبيعات')
                             <li><a class="slide-item" href="#">كشف المبيعات</a></li>
-                        @endcan
+                        @endcan --}}
 
                         @can('الفواتير الغير مدفوعة')
                             <li><a class="slide-item" href="{{ url('/' . ($page = 'Invoice_UnPaid')) }}">الفواتير الغير مدفوعة</a></li>
@@ -149,6 +150,34 @@
 
                         @can('ارشيف الفواتير')
                             <li><a class="slide-item" href="{{ url('/' . ($page = 'Archive')) }}">ارشيف الفواتير</a></li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+
+            @can('الزبائن')
+                <li class="side-item side-item-category">الزبائن</li>
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3" />
+                            <path
+                                d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
+                        </svg><span class="side-menu__label">الزبائن</span><i class="angle fe fe-chevron-down"></i></a>
+                    <ul class="slide-menu">
+
+                        @can('قائمة الزبائن')
+                            <li><a class="slide-item" href="{{ Route('Customers.index') }}">قائمة الزبائن</a></li>
+                        @endcan
+
+                        {{-- @can('تسديد زبون')
+                            <li><a class="slide-item" href="{{ Route('Payment') }}">تسديد زبون</a></li>
+                        @endcan --}}
+
+                        @can('كشف حساب زبون')
+                            <li><a class="slide-item" href="{{ Route('Report') }}">كشف حساب زبون</a></li>
                         @endcan
                     </ul>
                 </li>
@@ -168,11 +197,11 @@
                     <ul class="slide-menu">
 
                         @can('ادخال المصاريف')
-                            <li><a class="slide-item" href="#">ادخال مصاريف</a></li>
+                            <li><a class="slide-item" href="{{ Route('Qutlay.index') }}">ادخال مصاريف</a></li>
                         @endcan
 
                         @can('كشف المصاريف')
-                            <li><a class="slide-item" href="#">كشف مصاريف</a></li>
+                            <li><a class="slide-item" href="{{ Route('QutlayReport.index') }}">كشف مصاريف</a></li>
                         @endcan
                     </ul>
                 </li>
@@ -278,13 +307,13 @@
                             </g>
                         </svg><span class="side-menu__label">الاعدادات</span><i class="angle fe fe-chevron-down"></i></a>
                     <ul class="slide-menu">
-                        @can('الاقسام')
-                            <li><a class="slide-item" href="{{ url('/' . ($page = 'sections')) }}">الاقسام</a></li>
+                        @can('النسخ الاحتياطي')
+                            <li><a class="slide-item" href="{{ Route('DbBackup.index') }}">النسخ الاحتياطي</a></li>
                         @endcan
 
-                        @can('المنتجات')
+                        {{-- @can('المنتجات')
                             <li><a class="slide-item" href="{{ url('/' . ($page = 'products')) }}">المنتجات</a></li>
-                        @endcan
+                        @endcan --}}
                     </ul>
                 </li>
             @endcan

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,21 +18,21 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-//Auth::routes(['register' => false]);
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('invoices', 'InvoicesController');
+/* Route::resource('invoices', 'InvoicesController');
 
 Route::resource('sections', 'SectionsController');
 
 Route::resource('products', 'ProductsController');
 
-Route::resource('InvoiceAttachments', 'InvoiceAttachmentsController');
+Route::resource('InvoiceAttachments', 'InvoiceAttachmentsController'); */
 
 //Route::resource('InvoicesDetails', 'InvoicesDetailsController');
 
-Route::get('/section/{id}', 'InvoicesController@getproducts');
+/* Route::get('/section/{id}', 'InvoicesController@getproducts');
 
 Route::get('/InvoicesDetails/{id}', 'InvoicesDetailsController@edit');
 
@@ -58,7 +58,7 @@ Route::get('Invoice_Partial','InvoicesController@Invoice_Partial');
 
 Route::get('Print_invoice/{id}','InvoicesController@Print_invoice');
 
-Route::get('export_invoices', 'InvoicesController@export');
+Route::get('export_invoices', 'InvoicesController@export'); */
 
 Route::group(['middleware' => ['auth']], function() {
 
@@ -66,15 +66,30 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('permission','PermissionController');
     Route::resource('users','UserController');
     Route::resource('Suppliers','SuppliersController');
+    Route::resource('Payment','PaymentController');
+    Route::resource('SuppliersReport','SuppliersReportController');
+    Route::resource('StoreReport','StoreReportController');
+    Route::resource('Qutlay','QutlayController');
+    Route::resource('QutlayReport','QutlayReportController');
     Route::resource('Containers','ContainersController');
     Route::POST('Expenses/{id}','ContainersController@expenses')->name('Expenses');
     Route::resource('Items','ItemsController');
+    Route::resource('Items','ItemsController');
     Route::GET('GetStoreItem/{cont_no}','ItemsController@GetStoreItem')->name('GetStoreItem');
     Route::GET('GetItems/{itemId}','ItemsController@GetItems')->name('GetItems');
+    
+    Route::resource('SaleInvoices','SaleInvoicesController');
+    Route::GET('PrintInvoice/{Id}','SaleInvoicesController@PrintInvoice')->name('PrintInvoice');
+    Route::POST('Return_Item','SaleInvoicesController@Return_Item')->name('Return_Item');
 
+    Route::resource('Customers','CustomersController');
+    Route::GET('CustomersReport','CustomersController@Report')->name('Report');
+
+    Route::resource('DbBackup','BackupController');
+    Route::GET('DatabaseBackup', 'BackupController@DatabaseBackup')->name('DatabaseBackup');
 });
 
-Route::get('invoices_report', 'Invoices_Report@index');
+/* Route::get('invoices_report', 'Invoices_Report@index');
 
 Route::post('Search_invoices', 'Invoices_Report@Search_invoices');
 
@@ -89,4 +104,4 @@ Route::get('unreadNotifications_count', 'InvoicesController@unreadNotifications_
 Route::get('unreadNotifications', 'InvoicesController@unreadNotifications')->name('unreadNotifications');
 
 
-Route::get('/{page}', 'AdminController@index');
+Route::get('/{page}', 'AdminController@index'); */

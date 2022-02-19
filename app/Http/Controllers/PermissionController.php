@@ -61,8 +61,9 @@ class PermissionController extends Controller
             'guard_name' => 'web'
         ]);
 
-        return redirect()->back()
-        ->with('add','تم إنشاء الصلاحية بنجاح');
+        session()->flash('add','تم إنشاء الصلاحية بنجاح');
+
+        return redirect()->back();
     }
 
     /**

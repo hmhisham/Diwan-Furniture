@@ -17,6 +17,7 @@ class CreateStoreTable extends Migration
             $table->id();
             $table->foreignId('items_id')->references('id')->on('items')->cascadeOnDelete();
             $table->foreignId('containers_id')->references('id')->on('containers')->cascadeOnDelete();
+            $table->date('containers_date');
             $table->integer('item_qty');
             $table->integer('item_remaining');
             $table->integer('item_price');

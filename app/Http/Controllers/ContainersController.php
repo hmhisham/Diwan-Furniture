@@ -6,6 +6,7 @@ use App\Suppliers;
 use App\Containers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ContainersCreate;
 
 class ContainersController extends Controller
 {
@@ -39,15 +40,19 @@ class ContainersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContainersCreate $request)
     {
+        $request->validated();
+        
         Containers::create([
             'cont_no' => $request->cont_no,
             'cont_date' => $request->cont_date,
+            'cont_amount' => $request->cont_amount,
             'cont_supplier' => $request->cont_supplier,
             'cont_type_supply' => $request->cont_type_supply,
             'create_by' => Auth::User()->id
         ]);
+
         return redirect()->back()->with('add','تم اضافة الحاوية بنجاح');
     }
 
@@ -57,12 +62,13 @@ class ContainersController extends Controller
         $Containers->update([
             'cont_out_expenses' => $request->cont_out_expenses,
             'cont_customs' => $request->cont_customs,
-            'cont_in_expenses' => $request->cont_in_expenses
+            'cont_in_expenses' => $request->cont_in_expenses,
+            'extra_percent' => $request->extra_percent
         ]);
-        
+
         return redirect()->back()->with('add_expenses','تم اضافة مصاريف الحاوية بنجاح');
     }
-    
+
 
     /**
      * Display the specified resource.

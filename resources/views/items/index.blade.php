@@ -89,67 +89,9 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card mg-b-20">
-                @livewire('get-container-info')
-                {{-- <div class="card-header mb-2 bg-primary text-white">
-                    <div class="d-flex justify-content-between">
-                        <div class="margin-tb">
-                            <h4 class="content-title mb-0 my-auto">قائمة المواد</h4>
-                        </div>
-                        <div class="margin-tb">
-                            @can('اضافة منتج')
-                                <a class="modal-effect btn btn-light rounded-50 btn-md" data-effect="effect-scale"
-                                    data-toggle="modal" href="#AddContainer">
-                                    إضافة مادة
-                                </a>
-                                @include('items.create')
-                            @endcan
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="card-body"> --}}
-                    {{-- @livewire('get-container-info') --}}
 
-                    {{-- <div class="row">
-                        <div class="col-lg-2">
-                            <label>رقم الوجبة</label>
-                            <input type="text" class="form-control" name="cont_no"  id="cont_no">
-                        </div>
-                        <div class="col-lg-2">
-                            <label>تاريخ الوجبة</label>
-                            <input type="text" class="form-control" name="cont_date"  id="cont_date">
-                        </div>
-                        <div class="col-lg-2">
-                            <label>سعر الوجبة</label>
-                            <input type="text" class="form-control" name="cont_amount"  id="cont_amount">
-                        </div>
-                        <div class="col-lg-2">
-                            <label>المورد</label>
-                            <input type="text" class="form-control" name="cont_supplier"  id="cont_supplier">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="table-responsive mt-1">
-                        <table class="table key-buttons text-md-nowrap mt-2" data-page-length='50'>
-                            <thead>
-                                <tr>
-                                    <th class="font-small-3">#</th>
-                                    <th class="font-small-3">كود المادة</th>
-                                    <th class="font-small-3">اسم المادة</th>
-                                    <th class="font-small-3">النوع</th>
-                                    <th class="font-small-3">اللون</th>
-                                    <th class="font-small-3">العدد</th>
-                                    <th class="font-small-3">سعر الشراء</th>
-                                    <th class="font-small-3">التكلفة</th>
-                                    <th class="font-small-3">سعر البيع</th>
-                                    <th class="font-small-3">الأجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody id="body">
-                                
-                            </tbody>
-                        </table>
-                    </div> --}}
-                {{-- </div> --}}
+                @livewire('get-container-info')
+                
             </div>
         </div>
     </div>

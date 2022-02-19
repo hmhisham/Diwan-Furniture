@@ -12,7 +12,12 @@ class Containers extends Model
 
     public function GetItemsFromStore()
     {
-        return $this->hasMany('App\Store');
+        return $this->hasMany('App\Store')->orderBy('id', 'DESC');
+    }
+
+    public function ContLastItemsFromStore()
+    {
+        return $this->hasMany('App\Store')->orderBy('id', 'DESC');
     }
 
     public function GetSupplier()

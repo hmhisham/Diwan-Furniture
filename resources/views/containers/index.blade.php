@@ -26,7 +26,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الحاويات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="content-title mb-0 my-auto">الوجبات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
                     قائمة الوجبات</span>
             </div>
         </div>
@@ -114,18 +114,19 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table {{-- id="example1" --}} class="table key-buttons text-md-nowrap" data-page-length='50'>
+                        <table {{-- id="example" --}} class="table key-buttons text-md-nowrap" data-page-length='50'>
                             <thead>
-                                <tr>
-                                    <th class="font-small-3">#</th>
-                                    <th class="font-small-3">رقم الوجبة</th>
-                                    <th class="font-small-3">تاريخ الوجبة</th>
+                                <tr class="alert-primary">
+                                    <th class="font-small-3 pt-2 pb-2">#</th>
+                                    <th class="font-small-3 w-10">رقم الوجبة</th>
+                                    <th class="font-small-3" style="width:100px !important">تاريخ الوجبة</th>
                                     <th class="font-small-3">المورد</th>
                                     <th class="font-small-3">سعر الوجبة</th>
                                     <th class="font-small-3">نوع التوريد</th>
                                     <th class="font-small-3">مصاريف خارجية</th>
                                     <th class="font-small-3">كمرك</th>
                                     <th class="font-small-3">مصاريف داخلية</th>
+                                    <th class="font-small-3">نسبة المورد</th>
                                     <th class="font-small-3">الأجراءات</th>
                                 </tr>
                             </thead>
@@ -135,12 +136,16 @@
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $Container->cont_no }}</td>
                                         <td>{{ $Container->cont_date }}</td>
-                                        <td>{{ $Container->cont_supplier }}</td>
-                                        <td>{{ $Container->cont_amount }}</td>
+                                        <td>{{ $Container->GetSupplier->name }}</td>
+                                        <td>{{ number_format($Container->cont_amount) }}</td>
                                         <td>{{ $Container->cont_type_supply }}</td>
-                                        <td>{{ $Container->cont_out_expenses }}</td>
-                                        <td>{{ $Container->cont_customs }}</td>
-                                        <td>{{ $Container->cont_in_expenses }}</td>
+                                        <td>{{ number_format($Container->cont_out_expenses) }}</td>
+                                        <td>{{ number_format($Container->cont_customs) }}</td>
+                                        <td>{{ number_format($Container->cont_in_expenses) }}</td>
+                                        <td>
+                                            %{{ $Container->extra_percent }}<br>
+                                            {{ number_format( ($Container->cont_amount + $Container->cont_out_expenses + $Container->cont_customs) * $Container->extra_percent/100) }}
+                                        </td>
                                         <td>
                                             <div class="d-flex my-xl-auto right-content">
                                             @can('اضافة مصاريف')

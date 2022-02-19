@@ -4,22 +4,28 @@
             {{ csrf_field() }}
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">اضافة حاوية</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">اضافة وجبة</h6><button aria-label="Close" class="close" data-dismiss="modal"
                         type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
-                                <h6>رقم الحاوية</h6>
+                                <h6>رقم الوجبة</h6>
                                 <input type="text" name="cont_no" class="form-control">
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
-                                <h6>تاريخ الحاوية</h6>
+                                <h6>تاريخ الوجبة</h6>
                                 <input class="form-control fc-datepicker" name="cont_date" placeholder="YYYY-MM-DD"
-                                    type="text" value="{{ date('Y-m-d') }}">
+                                    type="date" value="{{ date('Y-m-d') }}">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <h6>سعر الوجبة</h6>
+                                <input type="text" name="cont_amount" class="form-control">
                             </div>
                         </div>
                     </div>

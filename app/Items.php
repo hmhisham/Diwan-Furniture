@@ -10,8 +10,8 @@ class Items extends Model
 
     protected $table = "items";
 
-    /* public function section()
+    public function GetItemInStore()
     {
-        return $this->belongsTo('App\store');
-    } */
+        return $this->belongsTo('App\Store', 'items_Id');
+    }
 }

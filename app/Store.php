@@ -14,4 +14,14 @@ class Store extends Model
     {
         return $this->belongsTo('App\Items', 'items_id');
     }
+
+    public function GetLastItemsDit()
+    {
+        return $this->belongsTo('App\Items', 'items_id')->orderBy('id', 'DESC');
+    }
+
+    public function GetContainer()
+    {
+        return $this->belongsTo('App\Containers', 'containers_id');
+    }
 }

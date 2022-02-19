@@ -98,4 +98,9 @@ class ItemsController extends Controller
 
         return json_encode($Items);
     }
+
+    public function AddNewItem()
+    {
+        return view('items.index');
+    }
 }

@@ -23,6 +23,7 @@ class CreateContainersTable extends Migration
             $table->string('cont_out_expenses')->nullable();
             $table->string('cont_customs')->nullable();
             $table->string('cont_in_expenses')->nullable();
+            $table->string('extra_percent')->nullable();
             $table->foreignId('create_by')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
